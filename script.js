@@ -106,6 +106,11 @@ document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
     button.addEventListener('click', (e) => {
         // Track button clicks (you can integrate with analytics here)
         console.log('Button clicked:', button.textContent);
+        
+        // Special tracking for Dashboard button
+        if (button.textContent.trim() === 'Dashboard') {
+            console.log('Dashboard button clicked - redirecting to AIVYCE dashboard');
+        }
     });
 });
 
