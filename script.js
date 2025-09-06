@@ -264,11 +264,13 @@ function handleTypewriterComplete() {
         // Remove cursor from line 1 after it completes
         setTimeout(() => {
             line1.classList.add('complete');
+            line1.style.borderRight = 'none';
         }, 2500);
         
         // Remove cursor from line 2 after it completes
         setTimeout(() => {
             line2.classList.add('complete');
+            line2.style.borderRight = 'none';
         }, 5500);
     }
 }

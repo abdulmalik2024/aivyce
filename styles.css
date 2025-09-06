@@ -176,7 +176,6 @@ body {
     overflow: hidden;
     white-space: nowrap;
     width: 0;
-    border-right: 3px solid #667eea;
     animation: typewriter 2.5s steps(25, end) forwards;
 }
 
@@ -191,7 +190,44 @@ body {
 }
 
 .typewriter-line.complete {
-    border-right: none;
+    border-right: none !important;
+}
+
+/* Force hide cursor after completion */
+.typewriter-line.complete::after {
+    display: none !important;
+}
+
+/* Alternative approach - hide cursor with animation */
+.typewriter-line {
+    position: relative;
+}
+
+.typewriter-line::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #667eea;
+    animation: blink 0.75s step-end infinite;
+}
+
+.typewriter-line.complete::after {
+    display: none !important;
+    animation: none !important;
+}
+
+/* Hide cursor after animation completes */
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes hideCursor {
+    0% { border-right: 3px solid #667eea; }
+    100% { border-right: none; }
 }
 
 /* Option 3: Floating Animation */
