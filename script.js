@@ -255,6 +255,29 @@ document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
     });
 });
 
+// Typewriter effect completion handler
+function handleTypewriterComplete() {
+    const line1 = document.getElementById('line1');
+    const line2 = document.getElementById('line2');
+    
+    if (line1 && line2) {
+        // Remove cursor from line 1 after it completes
+        setTimeout(() => {
+            line1.classList.add('complete');
+        }, 2500);
+        
+        // Remove cursor from line 2 after it completes
+        setTimeout(() => {
+            line2.classList.add('complete');
+        }, 5500);
+    }
+}
+
+// Initialize typewriter effect
+document.addEventListener('DOMContentLoaded', () => {
+    handleTypewriterComplete();
+});
+
 // Console welcome message
 console.log('%c🚀 AIVYCE Website Clone', 'color: #667eea; font-size: 20px; font-weight: bold;');
 console.log('%cBuilt with modern web technologies', 'color: #666; font-size: 14px;');
