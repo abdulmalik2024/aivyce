@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Demo - AIVYCE Text Effects</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .demo-section {
+            margin: 4rem 0;
+            padding: 2rem;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            background: white;
+        }
+        .demo-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .demo-text {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .demo-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .controls {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        .btn.active {
+            background: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1 style="text-align: center; margin-bottom: 3rem; color: #333;">AIVYCE Text Animation Demo</h1>
+        
+        <div class="demo-section">
+            <div class="demo-title">Option 1: Animated Gradient Text</div>
+            <div class="demo-text gradient-animated" id="demo1">Natural Conversations.<br>Powered by AI</div>
+            <div class="demo-description">Smooth color-shifting gradient that cycles through multiple colors</div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">Option 2: Typewriter Effect</div>
+            <div class="demo-text typewriter" id="demo2">Natural Conversations. Powered by AI</div>
+            <div class="demo-description">Text appears character by character with a blinking cursor</div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">Option 3: Floating Animation</div>
+            <div class="demo-text" id="demo3">Natural Conversations.<br>Powered by AI</div>
+            <div class="demo-description">Gentle up and down floating motion</div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">Option 4: Glowing Text Effect</div>
+            <div class="demo-text glowing" id="demo4">Natural Conversations.<br>Powered by AI</div>
+            <div class="demo-description">Text glows with a pulsing shadow effect</div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">Option 5: Scale & Rotate Animation</div>
+            <div class="demo-text scale-rotate" id="demo5">Natural Conversations.<br>Powered by AI</div>
+            <div class="demo-description">Text scales and rotates slightly for dynamic effect</div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">Option 6: Multi-Color Wave Effect</div>
+            <div class="demo-text wave" id="demo6">Natural Conversations.<br>Powered by AI</div>
+            <div class="demo-description">Rainbow wave effect that flows across the text</div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">Option 7: Slide-in with Bounce</div>
+            <div class="demo-text slide-bounce" id="demo7">Natural Conversations.<br>Powered by AI</div>
+            <div class="demo-description">Text slides in from the left with a bouncy effect</div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">Option 8: Pulsing with Shadow</div>
+            <div class="demo-text pulsing" id="demo8">Natural Conversations.<br>Powered by AI</div>
+            <div class="demo-description">Text pulses with a glowing shadow effect</div>
+        </div>
+
+        <div class="controls">
+            <h3>Try Different Effects:</h3>
+            <button class="btn" onclick="applyEffect('gradient-animated')">Gradient</button>
+            <button class="btn" onclick="applyEffect('typewriter')">Typewriter</button>
+            <button class="btn" onclick="applyEffect('')">Floating</button>
+            <button class="btn" onclick="applyEffect('glowing')">Glowing</button>
+            <button class="btn" onclick="applyEffect('scale-rotate')">Scale & Rotate</button>
+            <button class="btn" onclick="applyEffect('wave')">Wave</button>
+            <button class="btn" onclick="applyEffect('slide-bounce')">Slide Bounce</button>
+            <button class="btn" onclick="applyEffect('pulsing')">Pulsing</button>
+        </div>
+    </div>
+
+    <script>
+        function applyEffect(effectClass) {
+            // Remove all existing classes
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle) {
+                heroTitle.className = 'hero-title';
+                if (effectClass) {
+                    heroTitle.classList.add(effectClass);
+                }
+            }
+        }
+
+        // Add click handlers to demo buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

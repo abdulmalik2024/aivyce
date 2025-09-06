@@ -142,6 +142,119 @@ body {
     line-height: 1.2;
     margin-bottom: 1.5rem;
     color: #333;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Option 1: Animated Gradient Text */
+.hero-title.gradient-animated {
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+/* Option 2: Typewriter Effect */
+.hero-title.typewriter {
+    overflow: hidden;
+    border-right: 3px solid #667eea;
+    white-space: nowrap;
+    animation: typewriter 4s steps(40, end), blink 0.75s step-end infinite;
+}
+
+/* Option 3: Floating Animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Option 4: Glowing Text Effect */
+.hero-title.glowing {
+    text-shadow: 
+        0 0 5px #667eea,
+        0 0 10px #667eea,
+        0 0 15px #667eea,
+        0 0 20px #667eea;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Option 5: Scale & Rotate Animation */
+.hero-title.scale-rotate {
+    animation: scaleRotate 4s ease-in-out infinite;
+}
+
+/* Option 6: Multi-Color Wave Effect */
+.hero-title.wave {
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: wave 3s ease-in-out infinite;
+}
+
+/* Option 7: Slide-in with Bounce */
+.hero-title.slide-bounce {
+    animation: slideInBounce 2s ease-out;
+}
+
+/* Option 8: Pulsing with Shadow */
+.hero-title.pulsing {
+    animation: pulse 2s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Keyframe Animations */
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: #667eea; }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #667eea, 0 0 10px #667eea, 0 0 15px #667eea; }
+    to { text-shadow: 0 0 10px #667eea, 0 0 20px #667eea, 0 0 30px #667eea; }
+}
+
+@keyframes scaleRotate {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.05) rotate(1deg); }
+    75% { transform: scale(1.05) rotate(-1deg); }
+}
+
+@keyframes wave {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes slideInBounce {
+    0% { 
+        transform: translateX(-100px) scale(0.5);
+        opacity: 0;
+    }
+    50% { 
+        transform: translateX(0) scale(1.1);
+        opacity: 1;
+    }
+    100% { 
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 .gradient-text {
