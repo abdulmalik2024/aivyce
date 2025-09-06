@@ -438,5 +438,113 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- Vapi AI Agent Floating Button -->
+    <script>
+      const styles = document.createElement('style');
+      styles.textContent = `
+        .vapi-btn {
+          position: fixed !important;
+          bottom: 20px !important;
+          right: 20px !important;
+          z-index: 9999 !important;
+          font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif !important;
+        }
+        .vapi-btn-pill {
+          background-color: #8B5CF6 !important;
+          border: none !important;
+          box-shadow: 0 4px 6px rgba(139, 92, 246, 0.25) !important;
+          transition: all 0.3s ease !important;
+          padding: 12px 20px !important;
+          border-radius: 8px !important;
+        }
+        .vapi-btn-pill:hover {
+          transform: translateY(-2px) !important;
+          box-shadow: 0 6px 12px rgba(139, 92, 246, 0.3) !important;
+        }
+        .vapi-btn-is-active {
+          background-color: #7C3AED !important;
+        }
+        /* Force white text color for all text elements inside the button */
+        .vapi-btn-pill * {
+          color: white !important;
+        }
+        .vapi-btn-pill div {
+          color: white !important;
+        }
+        .vapi-btn-pill span {
+          color: white !important;
+          font-size: 14px !important;
+          font-weight: 500 !important;
+          letter-spacing: -0.01em !important;
+          line-height: 20px !important;
+        }
+        .vapi-btn-pill small {
+          color: rgba(255, 255, 255, 0.8) !important;
+          font-size: 12px !important;
+          font-weight: 400 !important;
+        }
+        /* Target specific text elements */
+        .vapi-btn-title {
+          color: white !important;
+        }
+        .vapi-btn-subtitle {
+          color: white !important;
+        }
+      `;
+      document.head.appendChild(styles);
+
+      var vapiInstance = null;
+      const assistant = "84c60558-f68a-4c38-a879-5cd9675af1f4";
+      const apiKey = "41582bb5-35b5-4f2f-9d49-26bc91a73798";
+
+      (function loadVapiSDK() {
+        const script = document.createElement('script');
+        script.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+        script.defer = true;
+        script.async = true;
+        document.head.appendChild(script);
+
+        script.onload = function() {
+          vapiInstance = window.vapiSDK.run({
+            apiKey: apiKey,
+            assistant: assistant,
+            config: {
+              position: "bottom-right",
+              offset: "20px",
+              idle: {
+                type: "pill",
+                title: "Talk to AI-AGENT",
+                subtitle: "Click to start call",
+                icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone.svg",
+                backgroundColor: "#8B5CF6",
+                textColor: "#FFFFFF", // Added explicit text color
+                styles: {
+                  text: {
+                    color: "#FFFFFF" // Added text style
+                  }
+                }
+              },
+              loading: {
+                type: "pill",
+                title: "Connecting...",
+                subtitle: "Please wait",
+                icon: "https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg",
+                backgroundColor: "#8B5CF6",
+                textColor: "#FFFFFF"
+              },
+              active: {
+                type: "pill",
+                title: "Call in progress",
+                subtitle: "Click to end call",
+                icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg",
+                backgroundColor: "#7C3AED",
+                textColor: "#FFFFFF"
+              }
+            }
+          });
+        };
+      })();
+    </script>
 </body>
 </html>
