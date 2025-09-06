@@ -41,8 +41,8 @@ Website/
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd Website
+git clone https://github.com/abdulmalik2024/aivyce.git
+cd aivyce
 ```
 
 2. Start a local development server:
