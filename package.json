@@ -1,0 +1,30 @@
+{
+  "name": "aivyce-website-clone",
+  "version": "1.0.0",
+  "description": "A complete clone of the AIVYCE website with modern web technologies",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "echo 'Deploy to Railway'"
+  },
+  "keywords": [
+    "aivyce",
+    "ai",
+    "voice",
+    "agents",
+    "website",
+    "clone",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Abdulmalik",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
