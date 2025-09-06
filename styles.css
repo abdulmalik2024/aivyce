@@ -160,7 +160,8 @@ body {
     overflow: hidden;
     border-right: 3px solid #667eea;
     white-space: nowrap;
-    animation: typewriter 4s steps(40, end), blink 0.75s step-end infinite;
+    width: 0;
+    animation: typewriter 4s steps(40, end) forwards, blink 0.75s step-end infinite;
 }
 
 /* Option 3: Floating Animation */
